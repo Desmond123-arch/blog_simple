@@ -30,7 +30,7 @@ const Header = () => {
     return (
         <div className="navbar bg-base-100 responsive flex-col md:flex-row">
             <div className="w-full flex justify-between">
-                <a className="btn btn-ghost text-xl text-start">Agric blog</a>
+                <Link to="/" className="btn btn-ghost text-xl text-start">Agric blog</Link>
                 <button className="btn btn-square btn-ghost md:hidden" onClick={() => {
                     if (showMenu) setShowMenu(false);
                     else setShowMenu(true);

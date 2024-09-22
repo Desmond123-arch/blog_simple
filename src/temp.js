@@ -1,5 +1,6 @@
-const blogData = [
-    {
+export const DBdata = {
+    "blogData": [
+      {
         "id": 1,
         "title": "The Future of Agriculture",
         "subheading": "Innovations Shaping Tomorrow's Farming",
@@ -7,8 +8,8 @@ const blogData = [
         "content": "In this post, we explore the innovations shaping the future of agriculture, including vertical farming and precision agriculture.",
         "publishedDate": "2024-09-10",
         "imageUrl": "https://images.pexels.com/photos/220769/pexels-photo-220769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
+      },
+      {
         "id": 2,
         "title": "Sustainable Farming Practices",
         "subheading": "Protecting the Environment While Producing Food",
@@ -16,8 +17,8 @@ const blogData = [
         "content": "Sustainable farming practices are essential for protecting the environment while producing food. This post discusses various techniques farmers can adopt.",
         "publishedDate": "2024-09-12",
         "imageUrl": "https://images.pexels.com/photos/3261069/pexels-photo-3261069.jpeg"
-    },
-    {
+      },
+      {
         "id": 3,
         "title": "Organic vs. Conventional Farming",
         "subheading": "A Comparison of Two Approaches",
@@ -25,8 +26,8 @@ const blogData = [
         "content": "This post examines the differences between organic and conventional farming, including benefits and drawbacks of each approach.",
         "publishedDate": "2024-09-15",
         "imageUrl": "https://images.pexels.com/photos/16281991/pexels-photo-16281991/free-photo-of-fly-on-leaves.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
+      },
+      {
         "id": 4,
         "title": "The Role of Technology in Modern Agriculture",
         "subheading": "Revolutionizing Farming Practices",
@@ -34,8 +35,8 @@ const blogData = [
         "content": "Explore how technology is revolutionizing agriculture, from drones to AI-driven analytics that optimize crop yield.",
         "publishedDate": "2024-09-18",
         "imageUrl": "https://images.unsplash.com/photo-1725714355048-6e96f31fb935?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
+      },
+      {
         "id": 5,
         "title": "10 Tips for Successful Home Gardening",
         "subheading": "Creating a Thriving Garden at Home",
@@ -43,7 +44,6 @@ const blogData = [
         "content": "Home gardening can be rewarding and fun. Here are ten tips to help you create a thriving garden at home.",
         "publishedDate": "2024-09-20",
         "imageUrl": "https://images.pexels.com/photos/4503269/pexels-photo-4503269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    }
-]
-
-export default blogData;
+      }
+    ]
+  }

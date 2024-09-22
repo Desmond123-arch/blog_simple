@@ -4,6 +4,7 @@ import PathConstants from "./pathConstants";
 const Home = React.lazy(() => import("../pages/Home"));
 const Create = React.lazy(() => import("../pages/CreateBlog"));
 const Blog = React.lazy(() => import("../pages/Blog"));
+const Update = React.lazy(() => import("../pages/Update"));
 
 const mainRoutes = [
     {
@@ -13,12 +14,15 @@ const mainRoutes = [
     {
         path: PathConstants.CREATE,
         element: <Create />
-    }
-]
-const blogRoutes = [
+    },
     {
         path: PathConstants.BLOG,
         element: <Blog />
+    },
+    {
+        path: PathConstants.UPDATE,
+        element: <Update/>
     }
 ]
-export { mainRoutes, blogRoutes };
+
+export { mainRoutes };

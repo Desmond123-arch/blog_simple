@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 
@@ -23,21 +23,12 @@ function checkImage(url) {
     });
 }
 
-function updateDB(data) {
-
-    let oldData = localStorage.getItem("newblogData");
-    if (oldData)
-    {
-        oldData = JSON.parse(oldData);
-    }
-    else {
-        oldData = [];
-    }
-    let id = localStorage.getItem('dataLength') + 1;
-    
-    data['id'] = id;
-    oldData.push(data);
-    localStorage.setItem('newblogData', JSON.stringify(oldData));
+function updateDB(data, currentBlog) {
+    let BlogData = JSON.parse(localStorage.getItem("newblogData"));
+    const idx = BlogData.findIndex(blog => blog.id == currentBlog.id);
+    Object.assign(currentBlog, data);
+    BlogData[idx] = currentBlog;
+    localStorage.setItem('newblogData', JSON.stringify(BlogData));
 }
 const formatDate = () => {
     let today = new Date();
@@ -48,7 +39,9 @@ const formatDate = () => {
     return today;
 }
 
-const CreateBlog = () => {
+const Update = () => {
+    const location = useLocation();
+    const blog  = location.state;
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     const handleSubmit = async (event) => {
@@ -90,7 +83,7 @@ const CreateBlog = () => {
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
         } else {
-            updateDB(data);
+            updateDB(data, blog);
             navigate('/');
             setErrors({});
         }
@@ -99,23 +92,23 @@ const CreateBlog = () => {
         <div>
             <h3 className="text-3xl text-center">Create a blog post</h3>
             <form onSubmit={handleSubmit} className="flex gap-2 flex-col w-[40%] mx-auto my-10">
-                <input type="text" name="title" placeholder="Title of blog" className="input input-bordered w-full " />
+                <input type="text" name="title" placeholder="Title of blog" className="input input-bordered w-full " defaultValue={blog.title} />
                 {errors.title && <div className="text-red-500">{errors.title}</div>}
 
-                <input type="text" name="subheading" placeholder="Subheading" className="input input-bordered w-full " />
+                <input type="text" name="subheading" placeholder="Subheading" className="input input-bordered w-full "  defaultValue={blog.subheading}/>
                 {errors.subheading && <div className="text-red-500">{errors.subheading}</div>}
 
-                <input type="text" name="imageUrl" placeholder="imageURL of hero image" className="input input-bordered w-full " />
+                <input type="text" name="imageUrl" placeholder="imageURL of hero image" className="input input-bordered w-full " defaultValue={blog.imageUrl}/>
                 {errors.imageUrl && <div className="text-red-500">{errors.imageUrl}</div>}
 
-                <textarea name="content" id="blogContent" placeholder="Write your article here" rows={15}>
+                <textarea name="content" id="blogContent" placeholder="Write your article here" rows={15} defaultValue={blog.content}>
                 </textarea>
                 {errors.content && <div className="text-red-500">{errors.content}</div>}
 
-                <button type="submit" className="btn btn-circle w-full"> Create Post</button>
+                <button type="submit" className="btn btn-circle w-full"> Update Post</button>
             </form>
         </div>
     );
 }
 
-export default CreateBlog;
+export default Update;
