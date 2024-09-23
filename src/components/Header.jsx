@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const Header = () => {
 
     const [showMenu, setShowMenu] = useState(false);
-
+    
     // Update state based on screen width
     useEffect(() => {
         const handleResize = () => {
@@ -30,7 +30,7 @@ const Header = () => {
     return (
         <div className="navbar bg-base-100 responsive flex-col md:flex-row">
             <div className="w-full flex justify-between">
-                <Link to="/" className="btn btn-ghost text-xl text-start">Agric blog</Link>
+                <Link to="/" className="btn btn-ghost text-xl text-start">Agric blog<span className="text-md">(Post to have access to CRUD)</span></Link>
                 <button className="btn btn-square btn-ghost md:hidden" onClick={() => {
                     if (showMenu) setShowMenu(false);
                     else setShowMenu(true);
