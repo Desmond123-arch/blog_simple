@@ -44,7 +44,7 @@ const Home = () => {
                 {
                     CombinedData.map((blog) => {
                         return (
-                            <Link to={`/blog/${blog.id}`} state={CombinedData} key={blog.id} className="card bg-base-100 w-100 h-96 shadow-xl mt-10 mx-auto md:mx-0">
+                            <Link to={`/blog/${blog.id}`} state={CombinedData} key={blog.id} className="card bg-base-100 w-full h-96 shadow-xl mt-10 mx-auto md:mx-0">
                                 <figure>
                                     <img
                                         src={blog.imageUrl}
