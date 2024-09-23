@@ -98,7 +98,7 @@ const CreateBlog = () => {
     return (
         <div>
             <h3 className="text-3xl text-center">Create a blog post</h3>
-            <form onSubmit={handleSubmit} className="flex gap-2 flex-col w-[40%] mx-auto my-10">
+            <form onSubmit={handleSubmit} className="flex gap-2 flex-col w-[80%] md:w-[40%] mx-auto my-10">
                 <input type="text" name="title" placeholder="Title of blog" className="input input-bordered w-full " />
                 {errors.title && <div className="text-red-500">{errors.title}</div>}
 
